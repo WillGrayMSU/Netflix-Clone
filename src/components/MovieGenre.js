@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
 
+import { fetchMovieTrailer } from '../store/actions/index';
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/movie/MovieDetails';
 
-export default class MovieGenre extends Component {
+class MovieGenre extends Component {
    state = {
-      toggleModal: false
+      toggleModal: false,
    }
 
    handleToggleModal = () => {
@@ -35,3 +38,13 @@ export default class MovieGenre extends Component {
       )
    }
 }
+
+const mapStateToProps = (state) => {
+    return { trailer: state.video }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ fetchMovieTrailer }, dispatch)
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(MovieGenre);

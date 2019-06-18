@@ -8,6 +8,7 @@ export const FETCH_COMEDY_MOVIES = 'FETCH_COMEDY_MOVIES';
 export const FETCH_HORROR_MOVIES = 'FETCH_HORROR_MOVIES';
 export const FETCH_ROMANCE_MOVIES = 'FETCH_ROMANCE_MOVIES';
 export const FETCH_DOCUMENTARIES = 'FETCH_DOCUMENTARIES';
+export const FETCH_TRAILER = 'FETCH_TRAILER'
 
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
 
@@ -81,4 +82,22 @@ export function fetchDocumentaries() {
     type: FETCH_DOCUMENTARIES,
     payload: request
   }
+}
+
+export function fetchMovieTrailer(movieId) {
+  const request = axios.get(`http://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`)
+
+  return {
+    type: FETCH_TRAILER,
+    payload: request
+  }
+}
+
+  export function fetchTVTrailer(movieId) {
+    const request = axios.get(`http://api.themoviedb.org/3/tv/${movieId}/videos?api_key=${API_KEY}`)
+  
+    return {
+      type: FETCH_TRAILER,
+      payload: request
+    }
 }
