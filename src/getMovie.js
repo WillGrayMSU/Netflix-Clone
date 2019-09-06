@@ -9,10 +9,12 @@ export function getMovieRows(movies, url) {
     }
 
     if (movie.poster_path && movie.backdrop_path !== null) {
+      const title = movie.name ? movie.name : movie.title;
       const movieComponent = <MovieGenre
         key={movie.id}
         url={url}
         posterUrl={movieImageUrl}
+        movieName={title}
         movie={movie} />
 
       return movieComponent;

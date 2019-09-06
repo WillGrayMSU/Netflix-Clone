@@ -30,6 +30,7 @@ class MovieGenre extends Component {
             <div onClick={() => this.handleToggleModal()}
                className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
                <img src={this.props.posterUrl} className="movieShowcase__container--movie-image" />
+               <h2>{this.props.movieName}</h2>
             </div>
             <Modal show={this.state.toggleModal} movie={this.props.movie} modalClosed={this.closeModal}>
                <MovieDetails movie={this.props.movie} />

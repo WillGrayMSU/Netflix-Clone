@@ -8,13 +8,13 @@ export default function Header(props) {
   const backgroundStyle = {
     backgroundSize: "cover",
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${props.movie.backdrop_path})`,
-    backgroundPosition: "center",
+    backgroundPosition: "inherit",
   }
 
   return (
     <header style={backgroundStyle} className="header">
       <div className="header__container">
-        <h1 className="header__container-heading">{props.movie.name}</h1>
+        <h1 className="header__container-heading">{props.movie.name ? props.movie.name : props.movie.title}</h1>
         <button onClick={() => alert("not a movie!")} className="header__container-btnPlay">
           <PlayLogo className="header__container-btnMyList-play" />
           Play

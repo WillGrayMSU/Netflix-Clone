@@ -22,7 +22,7 @@ class Modal extends Component {
         backgroundSize: "cover",
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.props.movie.backdrop_path || this.props.movie.poster_path})`,
         display: "flex",
-        "flex-direction": "row"
+        "flexDirection": "row"
     }
     
     let hasTrailer = false;
@@ -45,12 +45,13 @@ class Modal extends Component {
                             videoId={this.props.trailer}
                             opts = {{
                                 height: '521',
-                                width: '1250',
+                                width: '926',
                                 playerVars: { // https://developers.google.com/youtube/player_parameters
                                 autoplay: 1,
                                 controls: 0,
                                 disablekb: 1,
-                                modestbranding: 1
+                                modestbranding: 1,
+                                cc_load_policy: 0
                                     }
                                 }}
                         />
